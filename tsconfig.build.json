@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": true, // Generate .d.ts files
+    "declarationMap": true, // Generate source maps for the .d.ts files
+    "outDir": "./dist", // Output directory for the compiled files
+    "emitDeclarationOnly": true // Only emit .d.ts files, no .js files
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "tests"]
+}

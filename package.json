@@ -1,0 +1,20 @@
+{
+  "name": "ts-shell",
+  "author": "Karson Kalt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "clean": "node scripts/clean.js",
+    "build": "npm run clean dist && tsc --project tsconfig.build.json",
+    "test": "vitest"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.14.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.2",
+    "vitest": "^1.6.0"
+  }
+}
