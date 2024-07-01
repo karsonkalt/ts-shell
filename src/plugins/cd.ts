@@ -1,4 +1,4 @@
-import { BashPlugin } from "../types";
+import { BashPlugin } from "../Bash/types";
 
 export const cdPlugin: BashPlugin = {
   name: "cd",
