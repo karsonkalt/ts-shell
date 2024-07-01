@@ -1,3 +1,5 @@
+// import into ts-node repl for testing
+
 import {
   Bash,
   cdPlugin,
