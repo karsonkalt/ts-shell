@@ -1,8 +1,8 @@
-import { BashPlugin } from "../types";
+import { BashPlugin } from "./types";
 
 export const echoPlugin: BashPlugin = {
   name: "echo",
-  execute: (args, fileSystem) => {
+  execute: (args, bash) => {
     return args.join(" ");
   },
 };

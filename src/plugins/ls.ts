@@ -1,9 +1,9 @@
-import { BashPlugin } from "../types";
+import { BashPlugin } from "./types";
 
 export const lsPlugin: BashPlugin = {
   name: "ls",
-  execute: (args, fileSystem) => {
-    const children = fileSystem.getChildren();
+  execute: (args, bash) => {
+    const children = bash.fileSystem.getChildren();
     return children.map((child) => child.name).join(" ");
   },
 };

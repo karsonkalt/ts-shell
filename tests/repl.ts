@@ -8,6 +8,7 @@ import {
   mkdirPlugin,
   pwdPlugin,
   touchPlugin,
+  exportPlugin,
 } from "../src/main";
 
 const bash = new Bash();
@@ -18,5 +19,6 @@ bash.registerPlugin(lsPlugin);
 bash.registerPlugin(echoPlugin);
 bash.registerPlugin(touchPlugin);
 bash.registerPlugin(pwdPlugin);
+bash.registerPlugin(exportPlugin);
 
 export { bash };
