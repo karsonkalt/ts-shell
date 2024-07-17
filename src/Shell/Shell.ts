@@ -1,15 +1,19 @@
 import type { Command } from "../plugins/types";
+import type { ParsedCommand } from "./parseCommand";
+import { parseCommand } from "./parseCommand";
 import { FileSystem } from "../main";
 
 export class Shell {
   public readonly fileSystem: FileSystem;
   private commands: Map<string, Command>;
   private envVars: Record<string, string>;
+  private name: string;
 
   constructor() {
     this.fileSystem = new FileSystem();
     this.commands = new Map<string, Command>();
     this.envVars = {};
+    this.name = "ts-shell";
   }
 
   public setEnvVar(key: string, value: string): void {
@@ -29,15 +33,16 @@ export class Shell {
   }
 
   public execute(input: string): string {
-    let stdout = "";
-
-    const [cmd, ...args] = input.split(" ");
-    const plugin = this.commands.get(cmd);
+    const { command, args } = this.parseCommand(input);
+    const plugin = this.commands.get(command);
     if (!plugin) {
-      return `Command not found: ${cmd}`;
+      return `${this.name}: command not found: ${command}`;
     }
-    stdout = plugin.execute(args, this);
-
+    const stdout = plugin.execute(args, this);
     return stdout;
+  }
+
+  private parseCommand(input: string): ParsedCommand {
+    return parseCommand(input);
   }
 }
