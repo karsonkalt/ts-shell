@@ -1,7 +1,7 @@
 // import into ts-node repl for testing
 
 import {
-  Bash,
+  Shell,
   cdPlugin,
   echoPlugin,
   lsPlugin,
@@ -11,14 +11,14 @@ import {
   exportPlugin,
 } from "../src/main";
 
-const bash = new Bash();
+const bash = new Shell();
 
-bash.registerPlugin(cdPlugin);
-bash.registerPlugin(mkdirPlugin);
-bash.registerPlugin(lsPlugin);
-bash.registerPlugin(echoPlugin);
-bash.registerPlugin(touchPlugin);
-bash.registerPlugin(pwdPlugin);
-bash.registerPlugin(exportPlugin);
+bash.register(cdPlugin);
+bash.register(mkdirPlugin);
+bash.register(lsPlugin);
+bash.register(echoPlugin);
+bash.register(touchPlugin);
+bash.register(pwdPlugin);
+bash.register(exportPlugin);
 
 export { bash };

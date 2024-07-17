@@ -1,4 +1,4 @@
 export { FileSystem } from "./FileSystem/FileSystem";
-export { Bash } from "./Bash/Bash";
+export { Shell } from "./Shell/Shell";
 
 export * from "./plugins";
