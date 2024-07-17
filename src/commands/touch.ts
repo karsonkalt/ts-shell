@@ -1,7 +1,8 @@
-import { BashPlugin } from "./types";
+import { Command } from "./types";
 
-export const touchPlugin: BashPlugin = {
+export const touchCommand: Command = {
   name: "touch",
+  description: "Create an empty file",
   execute: (args, bash) => {
     if (args.length === 0) {
       return "usage: touch <filename>";

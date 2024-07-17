@@ -1,7 +1,8 @@
-import { BashPlugin } from "./types";
+import { Command } from "./types";
 
-export const cdPlugin: BashPlugin = {
+export const cdCommand: Command = {
   name: "cd",
+  description: "Change the current directory",
   execute: (args, bash) => {
     if (args.length === 0) {
       return "usage: cd <directory>";

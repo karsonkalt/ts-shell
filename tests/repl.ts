@@ -2,23 +2,25 @@
 
 import {
   Shell,
-  cdPlugin,
-  echoPlugin,
-  lsPlugin,
-  mkdirPlugin,
-  pwdPlugin,
-  touchPlugin,
-  exportPlugin,
+  cdCommand,
+  echoCommand,
+  lsCommand,
+  mkdirCommand,
+  pwdCommand,
+  touchCommand,
+  exportCommand,
 } from "../src/main";
 
 const bash = new Shell();
 
-bash.register(cdPlugin);
-bash.register(mkdirPlugin);
-bash.register(lsPlugin);
-bash.register(echoPlugin);
-bash.register(touchPlugin);
-bash.register(pwdPlugin);
-bash.register(exportPlugin);
+bash.register([
+  cdCommand,
+  echoCommand,
+  lsCommand,
+  mkdirCommand,
+  pwdCommand,
+  touchCommand,
+  exportCommand,
+]);
 
 export { bash };

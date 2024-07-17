@@ -1,7 +1,8 @@
-import { BashPlugin } from "./types";
+import { Command } from "./types";
 
-export const exportPlugin: BashPlugin = {
+export const exportCommand: Command = {
   name: "export",
+  description: "Set environment variables",
   execute: (args: string[], bash: any) => {
     if (args.length === 0) {
       return "usage: export <variable>=<value>";

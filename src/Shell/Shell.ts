@@ -1,4 +1,4 @@
-import type { Command } from "../plugins/types";
+import type { Command } from "../commands/types";
 import type { ParsedCommand } from "./parseCommand";
 import { parseCommand } from "./parseCommand";
 import { FileSystem } from "../main";
@@ -24,12 +24,18 @@ export class Shell {
     return this.envVars[key];
   }
 
-  public register(command: Command): boolean {
-    if (this.commands.has(command.name)) {
-      return false;
-    }
-    this.commands.set(command.name, command);
-    return true;
+  public register(commandOrCommands: Command | Command[]): void {
+    const commands = Array.isArray(commandOrCommands)
+      ? commandOrCommands
+      : [commandOrCommands];
+
+    commands.forEach((command) => {
+      if (this.commands.has(command.name)) {
+        // TODO not sure how to handle?
+      } else {
+        this.commands.set(command.name, command);
+      }
+    });
   }
 
   public execute(input: string): string {

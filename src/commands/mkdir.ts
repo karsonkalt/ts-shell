@@ -1,7 +1,8 @@
-import { BashPlugin } from "./types";
+import { Command } from "./types";
 
-export const mkdirPlugin: BashPlugin = {
+export const mkdirCommand: Command = {
   name: "mkdir",
+  description: "Create a new directory",
   execute: (args, bash) => {
     if (args.length === 0) {
       return "usage: mkdir <directory>";

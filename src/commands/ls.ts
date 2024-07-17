@@ -1,7 +1,8 @@
-import { BashPlugin } from "./types";
+import { Command } from "./types";
 
-export const lsPlugin: BashPlugin = {
+export const lsCommand: Command = {
   name: "ls",
+  description: "List directory contents",
   execute: (args, bash) => {
     const children = bash.fileSystem.getChildren();
     return children.map((child) => child.name).join(" ");
