@@ -1,8 +1,9 @@
-import { Bash } from "../main";
+import { Shell } from "../main";
 
-export interface BashPlugin {
+export interface Command {
   name: string;
+  description: string;
   execute: CommandFunction;
 }
 
-export type CommandFunction = (args: string[], bash: Bash) => string;
+export type CommandFunction = (args: string[], shell: Shell) => string;
